@@ -344,6 +344,140 @@ console.log(firstNamee);
 // storeOrder({id: 5, currency: 'USD', amount: 15.99}); // one argument / value!
 
 
+//THE SPREAD OPERATOR, the three dot operator
+
+//this operator pulls out the values from an array and adds them as seperate comma seperated values to a new Array
+
+//Example, lets say you want to merge two arrays
+
+const arr1 = ['Kantipur','NDTV','Zoom'];
+
+const arr2 = ['Discovery','National Geography','Animal Planet'];
+
+// now if you want to merge two array and if you do belowcode
+
+const nestedArr = [arr1,arr2];
+
+console.log(nestedArr); //you will get a nested array 
+// [
+//     [
+//         "Kantipur",
+//         "NDTV",
+//         "Zoom"
+//     ],
+//     [
+//         "Discovery",
+//         "National Geography",
+//         "Animal Planet"
+//     ]
+// ] and this is not waht we want we want to merge both arrays and get into one big array so in that case we can use spread operator like below
+
+
+const spreadArr = [...arr1,...arr2];
+
+console.log(spreadArr);
+
+// [
+//     "Kantipur",
+//     "NDTV",
+//     "Zoom",
+//     "Discovery",
+//     "National Geography",
+//     "Animal Planet"
+// ]
+
+
+// and thats what we want and we can use this in objects too like below
+
+//lets say we want to add one more data to our previous userrr objects then in that case we can use
+
+const extUser = {
+	isVarified : true,
+	...userrr
+};
+
+console.log(extUser); 
+// we get below result
+
+// {
+//     "isVarified": true,
+//     "fName": "Gaurav",
+//     "lName": "Poudel",
+//     "no": "98123456789",
+//     "street": "Kathmandu",
+//     "mail": "gp@gp.com"
+// }
+
+//CONTROLL STRUCTURES
+
+//conditional statements are called controlled structures as they execute the code only if certain condtions are met below is simple example of if
+
+// const check = prompt("Enter Check?");
+
+// if(check === 'pass'){
+// 	console.log("Enter");
+// }else if(check === 'Pass' || check === 'PASS'){
+// 	console.log("Enter");
+// }else{
+// 	console.log("Do not enter!!");
+// }
+
+// since if is controlling the execution of the next code it is controlled structure
+
+
+//for loop, for executing a same piece of code for multiple times
+
+const dummpyArray = ['Tiger','Lion','Panther','Cheetha'];
+
+for (const dmpArray of dummpyArray) {
+	console.log(dmpArray); //this is executed for four times as there are four items in array
+}
+// this goes for each element of dummpyArray and outputs each individual items like Tiger,Lion,Panther and Cheetha
+
+
+
+
+//MANUPULATING DOM
+
+
+//we can reach out to the dom and select elemets manually by using query selector in javascript, but in react
+// we dont do because react will do it because we write react as a declarative way
+
+// what is declarative??
+
+// A approach of writing code where focus is more on achievement, we drescribe what we want to achieve rather than explicitly specifying the steps to
+// achieve
+
+//where as javacript is imperative, it needs multiple instructions to get to the result where as in declarative you descirbe the end result
+
+
+// Example
+
+// const list = document.querySelector("ul");
+// list.remove(); 
+
+
+// Imperative
+
+//LETS say you want an button and when user clicks the button if it is blue it should be red and if it is red it sould be blue now in js it woulbe something
+// LIKE BELOW
+
+// if( user.likes() ) {
+//         if( hasBlue() ) {
+//             removeBlue();
+//             addRed();
+//         } else {
+//             removeRed();
+//             addBlue();
+//         }
+//     } this is imperative
+
+// Now in DEclaratie like in React
+
+// return this.state.liked ? <blueLike /> : <redLike />;
+// you just say you want bLUE LIKE if state is liked else redlike you dont put in steps
+
+
 
 
 
