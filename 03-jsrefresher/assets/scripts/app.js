@@ -199,6 +199,157 @@ console.log(person.convertFeetToMeter());
 //ARRAYS AND ARRAYS METHODS
 
 
+//technically speaking arrays are objects but different kind of objects
+
+//below is the syntax of arrays arrays are created by using square parenthesis, and inside parentheses a key value is kepet seperated by comma
+
+//and each elements of array can be accessed by using index and index starts at 0(zero), example
+
+const sports = ['Football','Soccer',"Basketball",'Volleyball'];
+console.log(sports);
+console.log(sports[0]); //we can use to access individual value by using index of array here it will console out Football as it is the first element in array
+
+//it is important to note that arrays can contain any kinds of value , it can contain another array, numbers , objects , stings and much more
+
+
+
+// we can use built in funcitons to manipulate array like there are lots of inbuilt function to manipulate array
+
+// https://www.w3schools.com/jsref/jsref_obj_array.asp
+
+
+
+// some examples 
+
+sports.push("Badminton");
+console.log(sports);
+
+const index = sports.findIndex((item) => { //this goes each array elements and finds the mathcing item index 
+	return item === 'Badminton';
+});
+
+console.log(index);
+
+
+//this is mostly and hugely used function map is used as foreach but it returns new Array, we can convert any item to new kind of item
+
+const newArray = sports.map((item) => {
+	return item +" " + "player";
+})
+
+console.log(newArray);
+
+
+//Example changeing into new king of item here we are canging to object type
+
+const newArr = sports.map((item) => {
+	return {text:item};
+
+})
+console.log(newArr);
+
+
+// Exercise: Array Methods
+// Your task is to add the missing logic to a transformToObjects() function that should transform a list of numbers into a list of JavaScript objects.
+
+// In the newly returned array, every object must have a val key and the input array's number as a value.
+
+// For example, for the provided input [1, 2, 3] the transformToObjects([1, 2, 3]) function should return [{val: 1}, {val: 2}, {val: 3}].
+
+
+
+function transformToObjects(numberArray) {
+    
+    const newObject = numberArray.map((item) => {
+        return {val:item}
+    });
+    return newObject;
+    // Todo: Add your logic
+    // should return an array of objects
+}
+
+const TestArray = [1,2,3];
+console.log(transformToObjects(TestArray));
+
+
+// NEW CONCEPTS
+
+//DESTRUCTURING of arryas and objects below is example
+
+const userData = ['Gaurav', 'Poudel','1234567890','Kathmandu','gp@gp.com'];
+
+// lets say we have above array and if we have to access each of these elements into a varaibale we can do like below
+// const firstName = userData[0];
+// const lastName = userData[1]; 
+
+// and so on which is lenghty and time consuming instead we can destructure array elements into a variable direclty by using following syntax 
+// of array destructuring
+
+const [firstName,lastName,phone,address,email] = userData;
+
+console.log(firstName);
+console.log(lastName);
+console.log(phone);
+console.log(email);
+console.log(address);
+
+// as you can see we can access all these as userData values are maped to the vairables at once, we can pull out values from array and put into values
+
+// we can use this also in Objects
+
+
+const userrr = {
+	fName: "Gaurav",
+	lName: "Poudel",
+	no:'98123456789',
+	street:"Kathmandu",
+	mail:'gp@gp.com'
+};
+
+
+// now we can destructure an object, remember we have to call by property name or you can also use alias like { name:fName} like below
+
+
+const {fName:firstNamee,lName:lastNamee,no:contact,mail:emaill} = userrr;
+
+console.log(firstNamee);
+
+
+// The destructuring syntax explained in the previous lecture can also be used in function parameter lists.
+
+// For example, if a function accepts a parameter that will contain an object it can be destructured to "pull out" the object properties and make them available as locally scoped variables (i.e., variables only available inside the function body).
+
+// Here's an example:
+
+function storeOrder(order) {
+  localStorage.setItem('id', order.id);
+  localStorage.setItem('currency', order.currency);
+}
+
+
+
+// Instead of accessing the order properties via the "dot notation" inside the storeOrder function body, you could use destructuring like this:
+
+
+function storeOrder({id, currency}) { // destructuring
+  localStorage.setItem('id', id);
+  localStorage.setItem('currency', currency);
+}
+
+
+// It's very important to understand, that storeOrder still only takes one parameter in this example! It does not accept two parameters. Instead, it's one single parameter - an object which then just is destructured internally.
+
+// The function would still be called like this:
+
+storeOrder({id: 5, currency: 'USD', amount: 15.99}); // one argument / value!
+
+
+
+
+
+
+
+
 
 
 
