@@ -524,9 +524,21 @@ sayHello(() => {
 	console.log("This is say hello function passed as arrow function");
 });
 
+//FUNCTIONS INSIDE FUNCTIONS
 
+function mainFunction(){
+	function subFunction(){
+		console.log("This is function inside main function");
+	}
 
+	subFunction();
+}
 
+// here in above mainFunction we are defining a subFunction() and this subFunction can be called inside main function only, 
+
+// subFunction()  we cannot call this as this function is out of scope , its scope is within mainFunction only
+
+mainFunction(); //we can call this 
 
 
 
