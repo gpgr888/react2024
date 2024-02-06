@@ -542,7 +542,54 @@ mainFunction(); //we can call this
 
 
 
+//REFERENCE VS PREMITIVE VALUES
 
 
+let primitiveVariable = "This is premitive value";
+console.log(primitiveVariable);
 
+// What it important to know about premitive value is we cannot edit them, ofcourse we can do below like
+
+primitiveVariable = "This is completely new primitive value"; //we can override the above value but the old string which was stored in primitiveVariable is
+// thrown out the memory
+console.log(primitiveVariable);
+// similary if we add some stirng with function then also it is not editd instead it it completely replaced
+primitiveVariable = primitiveVariable.concat(" THIS IS ADDED");
+console.log(primitiveVariable);
+// this always produces new values  but this changes in the case of objects and arrays, for example
+
+const memoryArray = ['riya','piya']; //here we have two values in arrays 
+memoryArray.push('jiya'); //now if we add a third one it is appended we can edit it 
+
+console.log(memoryArray); //we get below result
+//so arrays and obejcs are reference values, to simplify in reference type variables do not store values but rather address of data in memory
+
+// so in above when we call push function it reaches out to the address of the memory , open the value in that address and add this new item to existing
+// new value in the memory, so despite using const variable we can still edit the value like above but we cannot do 
+// cosnt memoryArray = [];
+
+
+// [
+//     "riya",
+//     "piya",
+//     "jiya"
+// ]
+
+// JS Array Functions
+// Not really next-gen JavaScript, but also important: JavaScript array functions like map() , filter() , reduce()  etc.
+
+// You'll see me use them quite a bit since a lot of React concepts rely on working with arrays (in immutable ways).
+
+// The following page gives a good overview over the various methods you can use on the array prototype - feel free to click through them and refresh your knowledge as required: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+// Particularly important in this course are:
+
+// map()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+// find()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+// findIndex()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+// filter()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// reduce()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=b
+// concat()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b
+// slice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+// splice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
