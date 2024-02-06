@@ -1,9 +1,6 @@
-function App(){
-
+function Header(){
   return (
-
-      <div>
-        <header>
+       <header>
            
            <img src="src/assets/react-core-concepts.png" alt="hero logo" />
            
@@ -14,6 +11,17 @@ function App(){
            </p>
         
         </header>
+    )
+}
+
+function App(){
+
+  return (
+
+      <div>
+      {/*we can use above funcitons as html in react, unlike in js where we would call Header() as function call*/}
+      {/*Also it sould have closing tag*/}
+        <Header /> 
 
         <main>
           
