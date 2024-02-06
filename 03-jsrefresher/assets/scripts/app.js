@@ -478,10 +478,51 @@ for (const dmpArray of dummpyArray) {
 // you just say you want bLUE LIKE if state is liked else redlike you dont put in steps
 
 
+// FUNCTIONS AS VALUES
 
 
+// 1. We can pass functions as values to other functions, Example below
 
+  // setTimeout(); //this is browser defined function and as we know this functions accepts a function as a first parameter or we can just 
+// define funtion inside it too
 
+setTimeout(() => {
+	console.log("Timeout Defined inside");
+},2000);
+
+// here setimeout will execute the defined function after 2 secodnds , time is set in miliseconds 
+
+//although we can define funciton inside settimeout we can create a seperate function and call
+
+function testTimeout() {
+	console.log("Test Timeout defined outside!!");
+}
+
+setTimeout(testTimeout,3000); //HERE testTImeout function is passed as value to setTimeout 
+// Note: We are passing testTimeout as value so we dont put parentheses here if we had to put parentheses the function should immediately executed 
+// so we have to make sure that this function should have a return value
+
+// setTimeout(testTimeout()); //here tesTimeout() should handle setTimeout immediately via return
+
+// alternative to above outside defined function we can define an arrow function too
+
+const testTimeout2 = () => {
+	console.log("Test Timeout defined outside as arrow function")
+}
+
+setTimeout(testTimeout2, 4000);
+
+// It is to be noted that its not limited to pass functions as values to built in functions we can pass function as values to user defined functions 
+
+// Example
+
+function sayHello(helloFn){
+	helloFn(); //here helloFn is and value function which is accepted as argument
+}
+//  And then in say hello function we are passing funciton as argument
+sayHello(() => {
+	console.log("This is say hello function passed as arrow function");
+});
 
 
 
