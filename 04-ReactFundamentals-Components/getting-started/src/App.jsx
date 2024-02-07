@@ -2,7 +2,7 @@
 // this we need to export to header componet later 
 // import coreConceptImage from './assets/components.png';
 import { useState } from 'react';
-import { CORE_CONCEPTS } from './data';
+import { CORE_CONCEPTS, EXAMPLES } from './data';
 
  import Header from './components/Header/Header';
  import CoreConcepts from './components/CoreConcepts/CoreConcepts';
@@ -64,7 +64,7 @@ import { CORE_CONCEPTS } from './data';
 //   )
 // }
 function App(){ 
-  const [content, setContent] = useState("Dynamic Content");  //this will always an array and it will always have exactly two elements, here we have used 
+  const [content, setContent] = useState("components");  //this will always an array and it will always have exactly two elements, here we have used 
   //array destructuring
   // let dynamicContent =" This is Dynamic Content";
   function handleSelect(selectedButton){
@@ -204,7 +204,16 @@ function App(){
 
           */}
             {/*{dynamicContent}*/}
-          {content}
+          {/*{content}*/}
+          <div id="tab-content">
+              <h3>{EXAMPLES[content].title}</h3>
+              <p>{EXAMPLES[content].description}</p>
+              <pre>
+                <code>
+                  {EXAMPLES[content].code}
+                </code>
+              </pre>
+          </div>
 
         </main>
 
