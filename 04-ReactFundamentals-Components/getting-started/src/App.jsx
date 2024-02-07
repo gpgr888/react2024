@@ -1,30 +1,35 @@
-import heroImage from './assets/react-core-concepts.png';
-
-import coreConceptImage from './assets/components.png';
+// import heroImage from './assets/react-core-concepts.png';
+// this we need to export to header componet later 
+// import coreConceptImage from './assets/components.png';
 
 import { CORE_CONCEPTS } from './data';
 
-const dynamicDescriptions = ['Fundamentals','Crucial','Core','Valuable'];
+ import Header from './components/Header';
+ import CoreConcepts from './components/CoreConcepts';
+// this is moved to seperate component as this is not a recommended ways though this works, but for practice we used like this
+// but we would eventually put this code in seperate components folder later
 
-function getRamdomIndex(max){
-  return Math.floor(Math.random() * (max + 1));
-}
-function Header(){
-  const description = dynamicDescriptions[getRamdomIndex(3)];
-  return (
-       <header>
+// const dynamicDescriptions = ['Fundamentals','Crucial','Core','Valuable'];
+
+// function getRamdomIndex(max){
+//   return Math.floor(Math.random() * (max + 1));
+// }
+// function Header(){
+//   const description = dynamicDescriptions[getRamdomIndex(3)];
+//   return (
+//        <header>
            
-           <img src={heroImage} alt="hero logo" />
+//            <img src={heroImage} alt="hero logo" />
            
-           <h1>React Fundamentals</h1>
+//            <h1>React Fundamentals</h1>
            
-           <p>
-             {description} React concepts you will need for almost any app you are going to build!!
-           </p>
+//            <p>
+//              {description} React concepts you will need for almost any app you are going to build!!
+//            </p>
         
-        </header>
-    )
-}
+//         </header>
+//     )
+// }
 // here in regular javascript usually we would have multiple variables as arguments that are passed from calling function but in react
 // there is only one variable and thas props (this can be named anything since its your component) 
 // this props will be set by react and there fore react will pass this props values to this component when it calls it
@@ -47,15 +52,16 @@ function Header(){
 //     description:
 //       'The core UI building block - compose the user interface by combining multiple components.',
 //   },
-function CoreConcepts({title,image,description}){
-  return (
-    <li>
-      <img src={image} alt={title} />
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </li>
-  )
-}
+ // this also we will make a seperate component later but for practice we can use here and this is not recomended, though it is correct
+// function CoreConcepts({title,image,description}){
+//   return (
+//     <li>
+//       <img src={image} alt={title} />
+//       <h1>{title}</h1>
+//       <p>{description}</p>
+//     </li>
+//   )
+// }
 function App(){
 
   return (
