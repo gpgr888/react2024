@@ -138,7 +138,8 @@ function App(){
                 description={CORE_CONCEPTS[3].description}
               />*/}
             {/*we can use spread operator if the data keys name and our component props are same*/}
-              <CoreConcepts 
+
+            {/*  <CoreConcepts 
                 {...CORE_CONCEPTS[0]}
               />
               <CoreConcepts 
@@ -149,7 +150,21 @@ function App(){
               />
               <CoreConcepts 
                 {...CORE_CONCEPTS[3]}
-              />
+
+              />*/}
+              {/*this is not the best approach as we can see there we are repeating same compont four times
+                  and this will break the code if CORE_CONCEPTS data changes or list items are deleted 
+
+                  so we can use dynamic displying concept, as jsx is capable of dealing with arrays , so we can convert 
+                  CORE_CONCEPT objects to array and this is the approach we used most in react
+              */}
+              {CORE_CONCEPTS.map((conceptItem) => (
+                <CoreConcepts key={conceptItem.title} {...conceptItem} /> //here we are using map method to transform objects to jsx arrays, here using spread operator 
+                //we are sending putting each key of our CORE_CONCEPTS as variable and in our CoreConcepts component 
+                //export default function CoreConcepts({title,image,description}){ } we can access title image and description as individual varables
+                //you will notice an error regarding unique key should be used in map fucntion but it will be covered later but atm ot get rid of the 
+                //errro we have to add key prop to our component and it will be used by react and it should be unique
+              ))}
             </ul>
 
           </section>
