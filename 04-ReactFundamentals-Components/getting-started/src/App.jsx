@@ -1,7 +1,7 @@
 // import heroImage from './assets/react-core-concepts.png';
 // this we need to export to header componet later 
 // import coreConceptImage from './assets/components.png';
-
+import { useState } from 'react';
 import { CORE_CONCEPTS } from './data';
 
  import Header from './components/Header/Header';
@@ -63,9 +63,19 @@ import { CORE_CONCEPTS } from './data';
 //     </li>
 //   )
 // }
-function App(){
+function App(){ 
+  const [content, setContent] = useState("Dynamic Content");  //this will always an array and it will always have exactly two elements, here we have used 
+  //array destructuring
+  // let dynamicContent =" This is Dynamic Content";
   function handleSelect(selectedButton){
-    console.log(selectedButton);
+    // useState(); this is not allowed you must call hooks in top level
+    
+    setContent(selectedButton);
+    console.log(content);
+    //although we have consoled the content after calling setCOntent ww will see old value thats because calling setCOntent will schedule 
+    // this state update and re executes this app component fuction only then we can see reevaluated value so we get old value
+    // dynamicContent = selectedButton;
+    // console.log(dynamicContent);
   }
 
   return (
@@ -175,9 +185,26 @@ function App(){
                 exprot default function TabButton({children, onClick}){ children is default prop
   
                 }
+
+                now for bringing the dynamic content we have identifier but before that we need to look at an important thing and that is
               */}
           </section>
+          {/*lets say we want to update this dynamic content we have defined a default value for this above
 
+            and as we click button we have updated this variable value but if you run this code in ui you will not a change 
+            although you ran the funciton coreclty this is because react is executed only once and to re-evaluate again we 
+            have to tell react, in order to update the ui,
+
+            #### AND TO SOLVE THIS A VERY IMPORTANT CONCEPT OF STATE IS INTRODUCED ########
+
+            THIS CONCEPT IS ALL ABOUT REGISTERING VARIABLE THAT ARE HANDLED BY REACT 
+            AND UPDATEING THE VARIABLE BY THE FUNCTION PROVIDED BY REACT, AND THAT WILL ALSO TELL REACT ABOUT CHANGE AND THAT WILL THERE FORE
+            CAUSE REACT TO UPDATE , TO USE THIS WE NEED TO IMPORT useState form react, and this is called react hook and all this funciton shich start
+            with use are react HookS, AND THEY ARE TECHNICALLY FUNCITONS BUT THEY  MUST ONLY BE CALLED INSIDE REACT COMPONENT FUNCTION OR INSIDE CUSTOM HOOKS
+
+          */}
+            {/*{dynamicContent}*/}
+          {content}
 
         </main>
 
