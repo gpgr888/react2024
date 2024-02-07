@@ -6,6 +6,7 @@ import { CORE_CONCEPTS } from './data';
 
  import Header from './components/Header/Header';
  import CoreConcepts from './components/CoreConcepts/CoreConcepts';
+  import TabButton from './components/TabButton';
 // this is moved to seperate component as this is not a recommended ways though this works, but for practice we used like this
 // but we would eventually put this code in seperate components folder later
 
@@ -124,7 +125,33 @@ function App(){
             </ul>
 
           </section>
-          <h2>Time to get started!</h2>
+          <section id="examples">
+              <h2>examples</h2>
+              <menu>
+                  {/* Here we are trying to create a butotn component
+
+                        now here is another way to create a button component like Coreconcept component 
+
+                        <TabButton label="Component" /> and TabComponent would look like 
+
+                        export default TabComponent({label}){ //here we are directly destructuring value we could also use props and access props.label
+                                return <li><button>{label}</button></li>
+                          }
+                          the above code would be perfectly fine but there is another way and in this we learn a thing that is by default when we call a compoent
+                          there is always props.chlidren property always available like for our tab component we might use like below
+                          <TabButton>Components</TabButton> just like regular component and for this approach our component would look like
+                          export default TabComponent({children}) {
+                                    //here we are destructuring props as props.children is always available and it will return complex childen 
+                                    // like <TabButton><div>and much more other elemetnts</div></TabButton> to any simple string 
+                                    //so it all depends with the necessecity and user preferences to use both approaches here we are using later one
+                          }
+                    */}
+                <TabButton>Components</TabButton>
+                <TabButton>JSX</TabButton>
+                <TabButton>Props</TabButton>
+                <TabButton>State</TabButton>
+              </menu>
+          </section>
 
 
         </main>
