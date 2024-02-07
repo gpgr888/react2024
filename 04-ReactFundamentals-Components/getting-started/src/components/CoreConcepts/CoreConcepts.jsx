@@ -1,4 +1,4 @@
-import coreConceptImage from '../assets/components.png';
+import './CoreConcepts.css';
 
 export default function CoreConcepts({title,image,description}){
   return (

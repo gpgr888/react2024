@@ -4,8 +4,8 @@
 
 import { CORE_CONCEPTS } from './data';
 
- import Header from './components/Header';
- import CoreConcepts from './components/CoreConcepts';
+ import Header from './components/Header/Header';
+ import CoreConcepts from './components/CoreConcepts/CoreConcepts';
 // this is moved to seperate component as this is not a recommended ways though this works, but for practice we used like this
 // but we would eventually put this code in seperate components folder later
 

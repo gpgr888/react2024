@@ -1,4 +1,8 @@
-import heroImage from '../assets/react-core-concepts.png'
+// It is to note that though we seperate our style to component specific it is not automatically limited to component scope
+// meaning these styles are valid for any other elements which has class or tag outside this component
+// later we will be learning to solve this limitation and we will implement component scope styles
+import './Header.css';
+import heroImage from '../../assets/react-core-concepts.png'
 const dynamicDescriptions = ['Fundamentals','Crucial','Core','Valuable'];
 
 function getRamdomIndex(max){
