@@ -64,8 +64,8 @@ import { CORE_CONCEPTS } from './data';
 //   )
 // }
 function App(){
-  function handleSelect(){
-    console.log("Hello");
+  function handleSelect(selectedButton){
+    console.log(selectedButton);
   }
 
   return (
@@ -151,11 +151,21 @@ function App(){
                     */}
               {/*here we are passing a pointer we are passng function as a value to the onSelect prop 
                 and then in our custom compoent we are forwarding our prop to the button onClick prop
+
+                now here is a thing in handleSelect we need to pass an identifier which button is clicked
+                so we would know what content is to be displaed as that tab button is clicked so 
+                we will intoruce a concept of argument passing to event functions, and by default we dont get that 
+                identifier as we click that button
+
+                and we can do this instead of using handleSelect as value we can pass an arrow function as a value to onSelect
+                like {() => handleSelect()} remeber earliser we have said that using parentheses would immediately execute the code
+                but now using this sturcture it would not, as only arrow funciton would be defined not the code inside the function
+
               */}
-                <TabButton onSelect={handleSelect}>Components</TabButton>
-                <TabButton onSelect={handleSelect}>JSX</TabButton>
-                <TabButton onSelect={handleSelect}>Props</TabButton>
-                <TabButton onSelect={handleSelect}>State</TabButton>
+                <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+                <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+                <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+                <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
               </menu>
               {/*here we would like show dynamic content based on the above tab menu clicked
                 as we know in built in component have click event since above component is our custom component
