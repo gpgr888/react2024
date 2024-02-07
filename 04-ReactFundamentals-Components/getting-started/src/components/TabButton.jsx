@@ -1,4 +1,4 @@
-export default function TabButton({children, onSelect}){
+export default function TabButton({children, onSelect, isSelected}){
 	// Normally in javascript to add eventlisterner we would do like below
 	// document.querySelector('button').addEventListener('click', () => {
 	// 	// and you write the code but we do not do this as in very early we have said that react is declarative so we dont write imperative code like this 
@@ -18,7 +18,7 @@ export default function TabButton({children, onSelect}){
 				executed when button compoent is rendered, somehting which we need to avoid
 
 			*/}
-			<button onClick={onSelect}>
+			<button className={isSelected ? 'active':undefined} onClick={onSelect}>
 				{children}
 			</button>
 		</li>

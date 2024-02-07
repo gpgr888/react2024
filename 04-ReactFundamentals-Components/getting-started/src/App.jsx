@@ -64,9 +64,24 @@ import { CORE_CONCEPTS, EXAMPLES } from './data';
 //   )
 // }
 function App(){ 
-  const [content, setContent] = useState("components");  //this will always an array and it will always have exactly two elements, here we have used 
+  const [content, setContent] = useState();  //this will always an array and it will always have exactly two elements, here we have used 
   //array destructuring
   // let dynamicContent =" This is Dynamic Content";
+
+  let tabContent = <p>Select Tab</p>
+  if(content){
+    tabContent = (
+        <div id="tab-content">
+                <h3>{EXAMPLES[content].title}</h3>
+                <p>{EXAMPLES[content].description}</p>
+                <pre>
+                  <code>
+                    {EXAMPLES[content].code}
+                  </code>
+                </pre>
+              </div>
+      );
+  }
   function handleSelect(selectedButton){
     // useState(); this is not allowed you must call hooks in top level
     
@@ -172,10 +187,10 @@ function App(){
                 but now using this sturcture it would not, as only arrow funciton would be defined not the code inside the function
 
               */}
-                <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-                <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-                <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-                <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+                <TabButton isSelected ={content ==='components'} onSelect={() => handleSelect('components')}>Components</TabButton>
+                <TabButton isSelected ={content ==='jsx'} onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+                <TabButton isSelected ={content ==='props'} onSelect={() => handleSelect('props')}>Props</TabButton>
+                <TabButton isSelected ={content ==='state'} onSelect={() => handleSelect('state')}>State</TabButton>
               </menu>
               {/*here we would like show dynamic content based on the above tab menu clicked
                 as we know in built in component have click event since above component is our custom component
@@ -205,15 +220,37 @@ function App(){
           */}
             {/*{dynamicContent}*/}
           {/*{content}*/}
-          <div id="tab-content">
-              <h3>{EXAMPLES[content].title}</h3>
-              <p>{EXAMPLES[content].description}</p>
-              <pre>
-                <code>
-                  {EXAMPLES[content].code}
-                </code>
-              </pre>
-          </div>
+          {/*conditional rendering this is one approach*/}
+         {/* {!content ? <p>Click Tab</p> : null}
+          {content ?
+            (<div id="tab-content">
+                <h3>{EXAMPLES[content].title}</h3>
+                <p>{EXAMPLES[content].description}</p>
+                <pre>
+                  <code>
+                    {EXAMPLES[content].code}
+                  </code>
+                </pre>
+            </div>)
+
+            :null}*/}
+{/*another alternative*/}
+            {/*{!content && <p>Select tab</p>}
+            {content && (
+
+              <div id="tab-content">
+                <h3>{EXAMPLES[content].title}</h3>
+                <p>{EXAMPLES[content].description}</p>
+                <pre>
+                  <code>
+                    {EXAMPLES[content].code}
+                  </code>
+                </pre>
+              </div>
+              )}*/}
+
+          {/*last alternative is to use vairable*/}
+          {tabContent}
 
         </main>
 
