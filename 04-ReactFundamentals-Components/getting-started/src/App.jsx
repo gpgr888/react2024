@@ -64,6 +64,9 @@ import { CORE_CONCEPTS } from './data';
 //   )
 // }
 function App(){
+  function handleSelect(){
+    console.log("Hello");
+  }
 
   return (
 
@@ -146,11 +149,23 @@ function App(){
                                     //so it all depends with the necessecity and user preferences to use both approaches here we are using later one
                           }
                     */}
-                <TabButton>Components</TabButton>
-                <TabButton>JSX</TabButton>
-                <TabButton>Props</TabButton>
-                <TabButton>State</TabButton>
+              {/*here we are passing a pointer we are passng function as a value to the onSelect prop 
+                and then in our custom compoent we are forwarding our prop to the button onClick prop
+              */}
+                <TabButton onSelect={handleSelect}>Components</TabButton>
+                <TabButton onSelect={handleSelect}>JSX</TabButton>
+                <TabButton onSelect={handleSelect}>Props</TabButton>
+                <TabButton onSelect={handleSelect}>State</TabButton>
               </menu>
+              {/*here we would like show dynamic content based on the above tab menu clicked
+                as we know in built in component have click event since above component is our custom component
+                we too want to have click event like <TabButton onClick={somefunction}></TabButton> and which would be then forwarded 
+                to the built in component in TabButton component which is real onClick prop which is then triggered 
+                so what can you do? what we can do is in TabCompoennt we can simple create a prop onClick like
+                exprot default function TabButton({children, onClick}){ children is default prop
+  
+                }
+              */}
           </section>
 
 
