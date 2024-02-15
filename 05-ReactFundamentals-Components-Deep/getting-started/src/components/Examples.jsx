@@ -2,6 +2,7 @@
 import { EXAMPLES } from "../data";
 import { useState } from "react";
 import TabButton from "./TabButton";
+import Section from "./Section";
 
 export default function Examples (){
 	const [selectedTopic, setSelectedTopic] = useState();
@@ -26,36 +27,48 @@ export default function Examples (){
     );
   }
 	return (
+    // as we have build sepereate Section component this below can be replaced
+		<Section title="Examples" id="examples" className="">
+    {/*now we dont set this h2 Like this instead we send it as props to component*/}
+          {/*<h2>Examples</h2>*/}
+    {/*you notice that when we look into the ui our css is broken before we had used 
+    
+      above id examples to write our css but now this id is not passed to the section componen
+      so it should be passed as props to be used in section component
+      it is also to be noted that in react in general is that when we set attributes to custom
+      components those props are not automatically forwarded to jsx code
+    */}
 
-		<section id="examples">
-          <h2>Examples</h2>
           <menu>
+          {/*now similaray we can replace this onSelect directly with onClick as this will be passed as props*/}
             <TabButton
               isSelected={selectedTopic === 'components'}
-              onSelect={() => handleSelect('components')}
+              onClick={() => handleSelect('components')}
             >
               Components
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'jsx'}
-              onSelect={() => handleSelect('jsx')}
+              onClick={() => handleSelect('jsx')}
             >
               JSX
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'props'}
-              onSelect={() => handleSelect('props')}
+              onClick={() => handleSelect('props')}
             >
               Props
             </TabButton>
             <TabButton
               isSelected={selectedTopic === 'state'}
-              onSelect={() => handleSelect('state')}
+              onClick={() => handleSelect('state')}
             >
               State
             </TabButton>
           </menu>
           {tabContent}
-        </section>
+      </Section>
+
+
      )
 }
