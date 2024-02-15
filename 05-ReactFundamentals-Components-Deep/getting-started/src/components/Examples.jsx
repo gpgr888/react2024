@@ -3,6 +3,7 @@ import { EXAMPLES } from "../data";
 import { useState } from "react";
 import TabButton from "./TabButton";
 import Section from "./Section";
+import Tabs from "./Tabs";
 
 export default function Examples (){
 	const [selectedTopic, setSelectedTopic] = useState();
@@ -38,10 +39,10 @@ export default function Examples (){
       it is also to be noted that in react in general is that when we set attributes to custom
       components those props are not automatically forwarded to jsx code
     */}
-
-          <menu>
-          {/*now similaray we can replace this onSelect directly with onClick as this will be passed as props*/}
-            <TabButton
+ {/*now similaray we can replace this onSelect directly with onClick as this will be passed as props*/}
+            
+         {/* <menu>
+         <TabButton
               isSelected={selectedTopic === 'components'}
               onClick={() => handleSelect('components')}
             >
@@ -66,7 +67,44 @@ export default function Examples (){
               State
             </TabButton>
           </menu>
+          {tabContent}*/}
+          <Tabs buttons={<>
+            <TabButton
+              isSelected={selectedTopic === 'components'}
+              onClick={() => handleSelect('components')}
+            >
+              Components
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'jsx'}
+              onClick={() => handleSelect('jsx')}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'props'}
+              onClick={() => handleSelect('props')}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === 'state'}
+              onClick={() => handleSelect('state')}
+            >
+              State
+            </TabButton>
+
+          </>}
+          >
           {tabContent}
+          </Tabs>
+          {/*similary as you can see this menu section we have TabButton and tabContent
+            we could make this lean and clean by seperating into different component and 
+            passing multiple slot for tabContent we have children prop in the component and
+            for TabButton we can pass another slot buttons and assign these TabButton component as
+            value which may look redentent but this is the crucial in comming days and perfectly fine
+            in react
+          */}
       </Section>
 
 
